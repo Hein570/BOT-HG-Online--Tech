@@ -1,0 +1,371 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-toggle">
+                <button id="login-toggle" class="toggle-btn active">Login</button>
+                <button id="signup-toggle" class="toggle-btn">Sign Up</button>
+            </div>
+              <form id="login-form" class="form">
+                <h2>Welcome BOT-HG Tech</h2>
+                <div class="form-group">
+                    <input type="email" id="login-email" required>
+                    <label for="login-email">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="login-password" required>
+                    <label for="login-password">Password</label>
+                    <span class="toggle-password" onclick="togglePassword('login-password', this)">👁️</span>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+                <div class="social-login">
+                    <p>Or login with</p>
+                    <div class="social-icons">
+                        <a href="#"><img src="https://via.placeholder.com/30" alt="Google"></a>
+                        <a href="#"><img src="https://via.placeholder.com/30" alt="Facebook"></a>
+                        <a href="#"><img src="https://via.placeholder.com/30" alt="Twitter"></a>
+                    </div>
+                </div>
+            </form>
+           <form id="signup-form" class="form hidden">
+                <header>
+                <h2>Fill in details</h2>
+                </header>
+                <div class="form-group">
+                    <input type="text" id="signup-name" required>
+                    <label for="signup-name">Full Name</label>
+                </div>
+           <div class="gender-box">
+     <label for="Male">Male</label>
+     <input type="radio" id="Male" name="Gender" value="Male"required placeholder=" male"> 
+     <label for="Female">Female</label>
+     <input type="radio" id="Female" name="Gender" value="Female" required placeholder=" female"> 
+     <label for="other">Other</label>
+     <input type="radio" id="Other" name="Gender" value="Other"required placeholder="other"> 
+            </div>  
+  <div class="birthday-box">
+             <label>   Birthday  Date </label>
+              <input type="date" name="birthday" id="brithday" required>
+               </div>
+              <div class="form-group">
+                    <input type="email" id="signup-email" required>
+                    <label for="signup-email">Email</label>
+                </div>
+              <div class="form-group">
+                    <input type="Ph-number" id="Ph-number" required>
+                    <label for="Ph-number">Ph-number</label>
+                </div>              
+              <div class="form-group">
+                    <input type="location-address" id="location-address" required>
+                    <label for="location-address">location-address</label>
+                </div>            
+               <div class="form-group">
+                     <input type="password" id="signup-password" required>
+                    <label for="signup-password">Password</label>
+                    <span class="toggle-password" onclick="togglePassword('signup-password', this)">👁️</span>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="signup-confirm-password" required>
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <span class="toggle-password" onclick="togglePassword('signup-confirm-password', this)">👁️</span>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox" required> I agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.form-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-toggle {
+    display: flex;
+    background: #f5f7fa;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background: white;
+    color: #764ba2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form.hidden {
+    display: none;
+}
+
+.form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #764ba2;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(118, 75, 162, 0.2);
+}
+
+.form-group label {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: #777;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    background: white;
+    padding: 0 5px;
+    color: #764ba2;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.form-options a {
+    color: #764ba2;
+    text-decoration: none;
+}
+
+.form-options a:hover {
+    text-decoration: underline;
+}
+
+.submit-btn {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(to right, #5a6fd1, #6a4299);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-login p {
+    color: #777;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.social-login p::before,
+.social-login p::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: #ddd;
+}
+
+.social-login p::before {
+    left: 0;
+}
+
+.social-login p::after {
+    right: 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f5f7fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: #e6e9f0;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .form {
+        padding: 20px;
+    }
+}.gender-box{
+  display:flex; 
+   position: relative;
+  }
+</style><script>document.addEventListener('DOMContentLoaded', function() {
+    const loginToggle = document.getElementById('login-toggle');
+    const signupToggle = document.getElementById('signup-toggle');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    
+    // Toggle between login and signup forms
+    loginToggle.addEventListener('click', function() {
+        if (!this.classList.contains('active')) {
+            this.classList.add('active');
+            signupToggle.classList.remove('active');
+            loginForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+        }
+    });
+    
+    signupToggle.addEventListener('click', function() {
+        if (!this.classList.contains('active')) {
+            this.classList.add('active');
+            loginToggle.classList.remove('active');
+            signupForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+        }
+    });
+    
+    // Form submission
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        
+        // Here you would typically send this data to your server
+        console.log('Login attempt with:', { email, password });
+        alert('Login functionality would be implemented here');
+    });
+    
+    signupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('signup-name').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+        const confirmPassword = document.getElementById('signup-confirm-password').value;
+        
+        if (password !== confirmPassword) {
+            alert('Passwords do not match!');
+            return;
+        }
+        
+        // Here you would typically send this data to your server
+        console.log('Signup attempt with:', { name, email, password });
+        alert('Signup functionality would be implemented here');
+    });
+});
+
+// Toggle password visibility
+function togglePassword(inputId, icon) {
+    const input = document.getElementById(inputId);
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = '🙈';
+    } else {
+        input.type = 'password';
+        icon.textContent = '👁️';
+    }
+}</script>
